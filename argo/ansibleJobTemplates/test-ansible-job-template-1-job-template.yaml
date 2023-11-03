@@ -1,0 +1,21 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: test-ansible-job-template-1-job-template
+  namespace: aap
+spec:
+  tower_auth_secret: aapaccess
+  job_template_name: test-ansible-job-template-1
+  job_template_project: aap
+  ask_variables_on_launch: false
+  job_template_playbook: create-apache-vm
+  job_template_inventory: aap
+  job_template_credentials: [CentOS root,VEGA-VCenter]
+  job_template_extra_vars:
+    vm_name: test-vm
+    vm_template_from: CentOS7
+    vm_library: CRIF-PoC
+    vm_cpus: 2
+    vm_memory: 2048    
+    
